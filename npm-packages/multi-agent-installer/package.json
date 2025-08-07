@@ -1,0 +1,36 @@
+{
+  "name": "multi-agent-installer",
+  "version": "1.0.0",
+  "description": "Install AI agents for Claude Code - 68 specialized agents available",
+  "type": "module",
+  "bin": {
+    "multi-agent-installer": "./bin/cli.js"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "claude",
+    "claude-code",
+    "ai",
+    "agents",
+    "multi-agent",
+    "installer"
+  ],
+  "author": "Claude Code Team",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^11.0.0",
+    "fs-extra": "^11.1.1",
+    "ora": "^7.0.1",
+    "inquirer": "^9.2.12"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TheAIuniversity/multi-agent-dashboard.git"
+  }
+}
