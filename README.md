@@ -1,181 +1,213 @@
-# Multi-Agent Observability Dashboard
+# 🚀 Multi-Agent Dashboard for Claude Code
 
-A real-time observability dashboard for monitoring multi-agent AI systems. Built with React, Node.js, and WebSocket for live event streaming.
+Real-time observability and monitoring dashboard for Claude Code AI agents. Track, manage, and optimize your AI workforce with comprehensive analytics and insights.
 
-## 🚀 Quick Start for Claude Code Users
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![NPM Version](https://img.shields.io/npm/v/multi-agent-dashboard-connect.svg)
+![GitHub Stars](https://img.shields.io/github/stars/TheAIuniversity/multi-agent-dashboard.svg)
 
-Connect your Claude Code session to the dashboard with one command:
+## 🎯 Features
+
+- **Real-Time Monitoring**: Live tracking of all Claude Code agent activities
+- **Multi-Agent Support**: Monitor 68+ specialized AI agents simultaneously
+- **Event Streaming**: WebSocket-based real-time event updates
+- **Persistent Storage**: SQLite database for historical data
+- **One-Click Setup**: Simple NPX command for instant deployment
+- **Global Hooks**: Automatic integration with all Claude Code instances
+- **Professional UI**: Modern React dashboard with Tailwind CSS
+
+## 📦 Quick Start
+
+### Install and Run
 
 ```bash
-npx @multi-agent/dashboard-connect
+npx multi-agent-dashboard-connect
 ```
 
-This will:
-1. Configure Claude Code hooks to capture all events
-2. Connect to the dashboard via WebSocket
-3. Start streaming real-time activity data
-4. Track all tool usage, prompts, and agent activity
+That's it! The dashboard will automatically:
+- Download from GitHub
+- Install dependencies
+- Start all servers
+- Configure Claude Code hooks
+- Open at http://localhost:5174
 
-## Features
+### Manual Installation
 
-- **Real-time Event Monitoring**: Live WebSocket connection for instant event updates
-- **Agent Activity Tracking**: Monitor agent status, tasks, and performance
-- **Analytics Dashboard**: Visualize agent metrics and system performance
-- **Event Filtering**: Filter events by project, app, session, event type, and time window
-- **Authentication System**: Secure user authentication with JWT tokens
-- **API Key Management**: Support for API key-based authentication
-- **Voice Notifications**: Optional voice announcements for critical events
-- **Responsive Design**: Mobile-friendly interface with adaptive layouts
-
-## Architecture
-
-### Frontend (React)
-- Located in `apps/client/`
-- Built with Vite + React
-- Real-time WebSocket client
-- Recharts for data visualization
-- TailwindCSS for styling
-
-### Backend (Node.js)
-- Located in `apps/server/`
-- Express server with WebSocket support
-- SQLite database for event storage
-- JWT authentication
-- RESTful API endpoints
-
-## Getting Started
-
-### Prerequisites
-- Node.js 18+ 
-- npm or yarn
-
-### Installation
-
-1. Clone the repository:
 ```bash
+# Clone the repository
+git clone https://github.com/TheAIuniversity/multi-agent-dashboard.git
 cd multi-agent-dashboard
+
+# Install dependencies
+cd apps/server && npm install
+cd ../client && npm install
+
+# Start the dashboard
+cd ../server && node index.js &
+cd ../client && npm run dev
 ```
 
-2. Install dependencies:
-```bash
-# Install root dependencies
-npm install
+## 🤖 Available AI Agents
 
-# Install client dependencies
-cd apps/client
-npm install
+Install any specialized agent with a single command:
 
-# Install server dependencies
-cd ../server
-npm install
+### Core Development Agents
+- `npx agent-ai-engineer` - Full-stack AI development
+- `npx agent-backend-architect` - Backend system design
+- `npx agent-frontend-developer` - UI/UX implementation
+- `npx agent-database-architect` - Database design and optimization
+- `npx agent-devops-engineer` - CI/CD and infrastructure
+
+### Testing & Quality
+- `npx agent-qa-engineer` - Comprehensive testing
+- `npx agent-code-reviewer` - Code quality analysis
+- `npx agent-security-auditor` - Security vulnerability scanning
+- `npx agent-performance-optimizer` - Performance tuning
+
+### Specialized Agents
+- `npx agent-data-scientist` - ML/AI model development
+- `npx agent-blockchain-developer` - Web3 and smart contracts
+- `npx agent-game-developer` - Game development
+- `npx agent-mobile-developer` - iOS/Android apps
+- `npx agent-cloud-architect` - Cloud infrastructure
+
+[View all 68 agents →](./npm-packages/AGENTS.md)
+
+## 🏗️ Architecture
+
+```
+┌─────────────┐     ┌──────────────┐     ┌─────────────┐
+│Claude Code  │────▶│ WebSocket    │────▶│ Dashboard   │
+│   Hooks     │     │   Server     │     │     UI      │
+└─────────────┘     └──────────────┘     └─────────────┘
+                            │
+                            ▼
+                    ┌──────────────┐
+                    │   SQLite     │
+                    │   Database   │
+                    └──────────────┘
 ```
 
-3. Set up environment variables:
-```bash
-# Copy the example env file
-cp .env.example .env
+## 🔧 Configuration
 
-# Edit .env with your configuration
+### Environment Variables
+
+Create `.env` file in `apps/server/`:
+
+```env
+PORT=3001
+WS_PORT=8766
+JWT_SECRET=your-secret-key
+NODE_ENV=production
 ```
 
-### Running the Dashboard
+### Claude Code Hooks
 
-1. Start the backend server:
-```bash
-cd apps/server
-npm run dev
-# Server runs on http://localhost:3001
-# WebSocket server runs on ws://localhost:8766
-```
+Hooks are automatically configured in `~/.claude/settings.json`:
 
-2. Start the frontend client:
-```bash
-cd apps/client
-npm run dev
-# Client runs on http://localhost:5173
-```
-
-3. Open your browser and navigate to `http://localhost:5173`
-
-## API Integration
-
-### Sending Events
-
-Send events to the dashboard via the REST API:
-
-```javascript
-// POST to http://localhost:3001/event
+```json
 {
-  "event_type": "TaskComplete",
-  "session_id": "session-123",
-  "app": "my-agent",
-  "payload": {
-    "task": "Process data",
-    "status": "success"
+  "hooks": {
+    "UserPromptSubmit": [...],
+    "PreToolUse": [...],
+    "PostToolUse": [...],
+    "Stop": [...]
   }
 }
 ```
 
-### WebSocket Events
+## 📊 Dashboard Features
 
-Connect to the WebSocket server for real-time updates:
+### Real-Time Metrics
+- Active sessions tracking
+- Tool usage statistics
+- Response time monitoring
+- Error rate analysis
 
-```javascript
-const ws = new WebSocket('ws://localhost:8766');
+### Agent Management
+- Install/update agents
+- View agent capabilities
+- Track agent performance
+- Manage agent configurations
 
-ws.onmessage = (event) => {
-  const data = JSON.parse(event.data);
-  console.log('New event:', data);
-};
-```
+### Analytics
+- Historical data visualization
+- Performance trends
+- Usage patterns
+- Cost optimization insights
 
-## Project Structure
-
-```
-multi-agent-dashboard/
-├── apps/
-│   ├── client/          # React frontend
-│   │   ├── src/
-│   │   │   ├── App.jsx           # Main dashboard component
-│   │   │   ├── Analytics.jsx     # Analytics view
-│   │   │   ├── AgentManagement.jsx # Agent management
-│   │   │   └── ...
-│   │   └── package.json
-│   └── server/          # Node.js backend
-│       ├── index.js     # Main server file
-│       ├── database.js  # Database management
-│       ├── auth.js      # Authentication
-│       └── package.json
-├── package.json
-└── README.md
-```
-
-## Development
-
-### Available Scripts
-
-- `npm run dev` - Start development servers
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-
-### Database Schema
-
-The SQLite database stores events with the following structure:
-- `id` - Unique identifier
-- `event_type` - Type of event
-- `session_id` - Session identifier
-- `app` - Application/agent name
-- `payload` - JSON event data
-- `timestamp` - Event timestamp
-
-## Security
+## 🔐 Security
 
 - JWT-based authentication
-- API key support for programmatic access
-- Input sanitization and validation
-- Rate limiting on API endpoints
-- CORS configuration for allowed origins
+- Secure WebSocket connections
+- Input validation and sanitization
+- Rate limiting and DDoS protection
+- Regular security audits
 
-## License
+## 🚀 Deployment
 
-MIT
+### Production Setup
+
+1. Set environment variables
+2. Configure reverse proxy (nginx/Apache)
+3. Set up SSL certificates
+4. Enable process management (PM2)
+5. Configure monitoring (optional)
+
+### Docker Deployment
+
+```bash
+docker-compose up -d
+```
+
+## 📚 Documentation
+
+- [Installation Guide](./docs/INSTALLATION.md)
+- [API Reference](./docs/API.md)
+- [Agent Development](./docs/AGENTS.md)
+- [Contributing Guide](./CONTRIBUTING.md)
+- [Security Policy](./SECURITY.md)
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guide](./CONTRIBUTING.md) for details.
+
+### Development Setup
+
+```bash
+# Fork and clone the repository
+git clone https://github.com/YOUR-USERNAME/multi-agent-dashboard.git
+
+# Create a feature branch
+git checkout -b feature/your-feature
+
+# Make changes and commit
+git commit -m "Add your feature"
+
+# Push and create PR
+git push origin feature/your-feature
+```
+
+## 📄 License
+
+MIT License - see [LICENSE](./LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Claude Code team at Anthropic
+- All contributors and users
+- Open source community
+
+## 📞 Support
+
+- [GitHub Issues](https://github.com/TheAIuniversity/multi-agent-dashboard/issues)
+- [NPM Package](https://www.npmjs.com/package/multi-agent-dashboard-connect)
+- Email: support@theaiuniversity.com
+
+## 🌟 Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=TheAIuniversity/multi-agent-dashboard&type=Date)](https://star-history.com/#TheAIuniversity/multi-agent-dashboard&Date)
+
+---
+
+Built with ❤️ by [The AI University](https://github.com/TheAIuniversity)

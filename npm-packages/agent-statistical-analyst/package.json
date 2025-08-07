@@ -1,0 +1,34 @@
+{
+  "name": "agent-statistical-analyst",
+  "version": "1.0.0",
+  "description": "Advanced statistical modeling, regression analysis, and predictive analytics",
+  "main": "index.js",
+  "bin": {
+    "agent-statistical-analyst": "./bin/install.js"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "claude",
+    "claude-code",
+    "ai",
+    "agent",
+    "statistical analyst",
+    "multi-agent"
+  ],
+  "author": "Claude Code Team",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "fs-extra": "^11.1.1",
+    "ora": "^7.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/claude-code/agents.git"
+  }
+}

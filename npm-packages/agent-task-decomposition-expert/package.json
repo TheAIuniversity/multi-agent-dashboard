@@ -1,0 +1,34 @@
+{
+  "name": "agent-task-decomposition-expert",
+  "version": "1.0.0",
+  "description": "Break down complex goals into actionable tasks and optimal workflows",
+  "main": "index.js",
+  "bin": {
+    "agent-task-decomposition-expert": "./bin/install.js"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "claude",
+    "claude-code",
+    "ai",
+    "agent",
+    "task decomposition expert",
+    "multi-agent"
+  ],
+  "author": "Claude Code Team",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "fs-extra": "^11.1.1",
+    "ora": "^7.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/claude-code/agents.git"
+  }
+}

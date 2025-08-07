@@ -1,0 +1,34 @@
+{
+  "name": "agent-content-creator",
+  "version": "1.0.0",
+  "description": "Generate content across all platforms",
+  "main": "index.js",
+  "bin": {
+    "agent-content-creator": "./bin/install.js"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "claude",
+    "claude-code",
+    "ai",
+    "agent",
+    "content creator",
+    "multi-agent"
+  ],
+  "author": "Claude Code Team",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "fs-extra": "^11.1.1",
+    "ora": "^7.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/claude-code/agents.git"
+  }
+}

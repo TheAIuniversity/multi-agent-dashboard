@@ -1,0 +1,34 @@
+{
+  "name": "agent-incident-responder",
+  "version": "1.0.0",
+  "description": "Handle production incidents, coordinate response, and prevent recurrence",
+  "main": "index.js",
+  "bin": {
+    "agent-incident-responder": "./bin/install.js"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "claude",
+    "claude-code",
+    "ai",
+    "agent",
+    "incident responder",
+    "multi-agent"
+  ],
+  "author": "Claude Code Team",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "fs-extra": "^11.1.1",
+    "ora": "^7.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/claude-code/agents.git"
+  }
+}

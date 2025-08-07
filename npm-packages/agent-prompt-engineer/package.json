@@ -1,0 +1,34 @@
+{
+  "name": "agent-prompt-engineer",
+  "version": "1.0.0",
+  "description": "Optimize prompts for LLMs to improve AI feature performance",
+  "main": "index.js",
+  "bin": {
+    "agent-prompt-engineer": "./bin/install.js"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "claude",
+    "claude-code",
+    "ai",
+    "agent",
+    "prompt engineer",
+    "multi-agent"
+  ],
+  "author": "Claude Code Team",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "fs-extra": "^11.1.1",
+    "ora": "^7.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/claude-code/agents.git"
+  }
+}

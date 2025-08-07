@@ -1,0 +1,40 @@
+{
+  "name": "multi-agent-dashboard-connect",
+  "version": "1.1.0",
+  "description": "Connect Claude Code to the Multi-Agent Dashboard for real-time AI agent monitoring",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "multi-agent-dashboard-connect": "./bin/connect.js",
+    "connect-agent": "./bin/connect-agent.js"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "claude",
+    "claude-code",
+    "ai",
+    "agents",
+    "dashboard",
+    "monitoring",
+    "multi-agent",
+    "observability"
+  ],
+  "author": "Claude Code Team",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^11.0.0",
+    "fs-extra": "^11.1.1",
+    "node-fetch": "^3.3.2",
+    "ora": "^7.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/claude-code/multi-agent-dashboard.git"
+  }
+}
