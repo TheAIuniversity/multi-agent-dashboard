@@ -99,7 +99,7 @@ function AgentLibrary({ onAddAgent }) {
   };
 
   return (
-    <div className="p-6">
+    <div className="p-6 max-w-full overflow-x-hidden">
       {/* Header */}
       <div className="mb-8">
         <h2 className="text-2xl font-bold mb-2">Agent Catalog</h2>
@@ -330,7 +330,7 @@ function AgentLibrary({ onAddAgent }) {
       )}
 
       {/* Agent Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 max-w-7xl mx-auto">
         {filteredAgents.length === 0 ? (
           <div className="col-span-full text-center py-8 text-claude-muted">
             No agents found. Check console for debug info.
@@ -341,32 +341,27 @@ function AgentLibrary({ onAddAgent }) {
             return (
             <div
               key={agent.id}
-              className="bg-claude-surface border border-claude-border rounded-lg p-5 hover:border-claude-muted transition-all cursor-pointer"
+              className="bg-claude-surface border border-claude-border rounded-lg p-5 hover:border-orange-600/50 transition-all cursor-pointer"
               onClick={() => setSelectedAgent(agent)}
             >
-              <div className="flex items-start gap-3 mb-3">
-                <div className="w-10 h-10 bg-claude-bg rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Icon className="w-5 h-5 text-claude-accent" />
+              <div className="flex items-start gap-2 mb-2">
+                <div className="w-8 h-8 bg-claude-bg rounded flex items-center justify-center flex-shrink-0">
+                  <Icon className="w-4 h-4 text-claude-accent" />
                 </div>
                 <div className="flex-1">
-                  <div className="text-xs text-claude-muted mb-1">{agent.category}</div>
-                  <h3 className="font-semibold">{agent.name}</h3>
+                  <div className="text-xs text-claude-muted">{agent.category}</div>
+                  <h3 className="font-semibold text-sm">{agent.name}</h3>
                 </div>
               </div>
               
-              <p className="text-sm text-claude-muted mb-3 overflow-hidden" style={{ 
-                display: '-webkit-box',
-                WebkitLineClamp: 2,
-                WebkitBoxOrient: 'vertical',
-                overflow: 'hidden'
-              }}>
+              <p className="text-xs text-claude-muted mb-3 line-clamp-2">
                 {agent.description}
               </p>
 
               <div className="space-y-2">
                 {/* NPX Install Command */}
                 <div className="flex items-center gap-2">
-                  <code className="flex-1 bg-claude-bg px-2 py-1 rounded text-xs font-mono truncate">
+                  <code className="flex-1 bg-claude-bg px-2 py-1 rounded text-xs font-mono truncate min-w-0">
                     {agent.installCommand || `npx agent-${agent.id}`}
                   </code>
                   <button
@@ -374,7 +369,7 @@ function AgentLibrary({ onAddAgent }) {
                       e.stopPropagation();
                       copyToClipboard(agent.installCommand || `npx agent-${agent.id}`, 'Install command copied!');
                     }}
-                    className="p-1.5 hover:bg-claude-bg rounded transition-colors"
+                    className="p-1.5 hover:bg-claude-bg rounded transition-colors flex-shrink-0"
                     title="Copy install command"
                   >
                     <FiCopy className="w-3.5 h-3.5" />
@@ -386,7 +381,7 @@ function AgentLibrary({ onAddAgent }) {
                     e.stopPropagation();
                     addAgentToTeam(agent);
                   }}
-                  className="w-full px-3 py-2 bg-claude-bg hover:bg-claude-border rounded text-sm transition-colors"
+                  className="w-full px-3 py-2 bg-claude-bg hover:bg-claude-border rounded text-xs transition-colors mt-2"
                 >
                   Add to My Agents
                 </button>

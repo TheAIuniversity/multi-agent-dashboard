@@ -7,6 +7,30 @@ import {
 function Documentation() {
   const sections = [
     {
+      title: 'Quick Start & Installation',
+      icon: <FiZap className="w-5 h-5" />,
+      links: [
+        {
+          title: 'Dashboard Installation',
+          description: 'Get started with npx multi-agent-dashboard-connect@latest',
+          url: 'https://github.com/TheAIuniversity/multi-agent-dashboard#quick-start',
+          icon: <FiCode className="w-4 h-4" />
+        },
+        {
+          title: 'Agent Installation Guide',
+          description: 'How to install and configure all 68 AI agents',
+          url: 'https://github.com/TheAIuniversity/multi-agent-dashboard#agents',
+          icon: <FiUsers className="w-4 h-4" />
+        },
+        {
+          title: 'Hook Configuration',
+          description: 'Understanding how the dashboard hooks work with Claude Code',
+          url: 'https://github.com/TheAIuniversity/multi-agent-dashboard#hooks',
+          icon: <FiTool className="w-4 h-4" />
+        }
+      ]
+    },
+    {
       title: 'Official Anthropic Documentation',
       icon: <FiBook className="w-5 h-5" />,
       links: [
@@ -35,16 +59,22 @@ function Documentation() {
       icon: <FiGithub className="w-5 h-5" />,
       links: [
         {
-          title: 'Multi-Agent Observability',
-          description: 'The repository for this dashboard - track and monitor your AI agents',
-          url: 'https://github.com/disler/claude-code-hooks-multi-agent-observability',
+          title: 'Multi-Agent Dashboard',
+          description: 'Official repository for this Multi-Agent Dashboard with 68 AI agents',
+          url: 'https://github.com/TheAIuniversity/multi-agent-dashboard',
           icon: <FiZap className="w-4 h-4" />
         },
         {
-          title: 'Claude Code Hooks Mastery',
-          description: 'Advanced patterns and examples for Claude Code hooks',
-          url: 'https://github.com/disler/claude-code-hooks-mastery',
-          icon: <FiFileText className="w-4 h-4" />
+          title: 'NPM Package - Dashboard Connector',
+          description: 'The NPX package that installs and runs this dashboard',
+          url: 'https://www.npmjs.com/package/multi-agent-dashboard-connect',
+          icon: <FiLink className="w-4 h-4" />
+        },
+        {
+          title: 'Agent Collection',
+          description: 'Browse all 68 specialized AI agents on NPM',
+          url: 'https://www.npmjs.com/~aiunivesity',
+          icon: <FiUsers className="w-4 h-4" />
         }
       ]
     },
@@ -77,7 +107,7 @@ function Documentation() {
           Documentation & Resources
         </h1>
         <p className="text-lg text-claude-muted">
-          Everything you need to master Claude Code and multi-agent development
+          Complete documentation for Multi-Agent Dashboard, 68 AI agents, and Claude Code integration
         </p>
       </div>
 

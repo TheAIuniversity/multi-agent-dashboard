@@ -10,7 +10,7 @@ import FilterBar from './FilterBar';
 import Documentation from './Documentation';
 import NotificationPreferences from './NotificationPreferences';
 import MobileNotifications from './MobileNotifications';
-import Auth from './Auth';
+// Auth removed - local tool doesn't need login
 import { sanitizeText, sanitizeJSON, sanitizeSessionId, sanitizeAppName, sanitizeEventType } from './utils/security';
 import { 
   FiCpu, FiVolume2, FiVolumeX, FiDatabase, FiActivity, 
@@ -141,24 +141,29 @@ function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [filteredEvents, setFilteredEvents] = useState([]);
   const [activeFilters, setActiveFilters] = useState(null);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [user, setUser] = useState(null);
-  const [token, setToken] = useState(null);
+  // No authentication needed for local tool
   
   const wsRef = useRef(null);
   const reconnectTimeoutRef = useRef(null);
   const lastEventRef = useRef(null);
 
-  // Check for existing auth on mount
+  // No auth check needed
+
+  // Listen for navigation events
   useEffect(() => {
-    const savedToken = localStorage.getItem('token');
-    const savedUser = localStorage.getItem('user');
-    
-    if (savedToken && savedUser) {
-      setToken(savedToken);
-      setUser(JSON.parse(savedUser));
-      setIsAuthenticated(true);
-    }
+    const handleNavigateToAgentCatalog = () => {
+      setCurrentView('agents');
+      // After switching views, trigger the library tab
+      setTimeout(() => {
+        const event = new CustomEvent('switch-to-library-tab');
+        window.dispatchEvent(event);
+      }, 100);
+    };
+
+    window.addEventListener('navigate-to-agent-catalog', handleNavigateToAgentCatalog);
+    return () => {
+      window.removeEventListener('navigate-to-agent-catalog', handleNavigateToAgentCatalog);
+    };
   }, []);
 
   // Connect to WebSocket
@@ -316,10 +321,10 @@ function App() {
 
   const loadInitialData = async () => {
     try {
-      const headers = token ? { 'Authorization': `Bearer ${token}` } : {};
+      const headers = {};
       
       // Load recent events
-      const eventsRes = await fetch('http://localhost:3001/events?limit=100', { headers });
+      const eventsRes = await fetch('http://localhost:3001/events?limit=100');
       if (eventsRes.ok) {
         const eventsData = await eventsRes.json();
         // Ensure eventsData is an array
@@ -335,33 +340,26 @@ function App() {
       }
 
       // Load stats
-      const statsRes = await fetch('http://localhost:3001/stats', { headers });
+      const statsRes = await fetch('http://localhost:3001/stats');
       const statsData = await statsRes.json();
       setStats(statsData);
 
       // Load retention policy
-      const retentionRes = await fetch('http://localhost:3001/retention', { headers });
+      const retentionRes = await fetch('http://localhost:3001/retention');
       const retentionData = await retentionRes.json();
       setRetentionSettings(prev => ({ ...prev, currentPolicy: retentionData.retention_days }));
 
       // Load apps
-      const appsRes = await fetch('http://localhost:3001/apps', { headers });
+      const appsRes = await fetch('http://localhost:3001/apps');
       const appsData = await appsRes.json();
       setApps(appsData);
 
       // Load sessions
-      const sessionsRes = await fetch('http://localhost:3001/sessions', { headers });
+      const sessionsRes = await fetch('http://localhost:3001/sessions');
       const sessionsData = await sessionsRes.json();
       setSessions(sessionsData);
 
-      // Load user agents if authenticated
-      if (token) {
-        const agentsRes = await fetch('http://localhost:3001/auth/agents', { headers });
-        if (agentsRes.ok) {
-          const userAgents = await agentsRes.json();
-          setAgents(userAgents);
-        }
-      }
+      // No user-specific agents in local tool
     } catch (err) {
       console.error('Error loading initial data:', err);
     }
@@ -587,26 +585,7 @@ function App() {
     }
   };
 
-  // Handle authentication
-  const handleAuthSuccess = (newToken, newUser) => {
-    setToken(newToken);
-    setUser(newUser);
-    setIsAuthenticated(true);
-  };
-
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    setToken(null);
-    setUser(null);
-    setIsAuthenticated(false);
-    setEvents([]);
-  };
-
-  // Show auth screen if not authenticated
-  if (!isAuthenticated) {
-    return <Auth onAuthSuccess={handleAuthSuccess} />;
-  }
+  // No authentication needed for local tool
 
   return (
     <div className="min-h-screen bg-claude-bg flex flex-col md:flex-row">
@@ -731,15 +710,8 @@ function App() {
             </div>
             <div className="flex items-center gap-2 px-3 py-1 rounded-lg border bg-claude-surface border-claude-border">
               <FiUser className="w-4 h-4" />
-              <span className="text-sm">{user?.name || user?.email}</span>
+              <span className="text-sm">Local Dashboard</span>
             </div>
-            <button
-              onClick={handleLogout}
-              className="flex items-center gap-2 px-3 py-1 rounded-lg border bg-claude-surface border-claude-border hover:border-red-600 hover:text-red-600 transition-colors"
-              title="Logout"
-            >
-              <FiLogOut className="w-4 h-4" />
-            </button>
           </div>
         </div>
       </div>

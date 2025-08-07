@@ -16,6 +16,17 @@ function AgentManagement({ agents, setAgents }) {
   const [activeTab, setActiveTab] = useState('my-agents'); // my-agents, library, best-practices
   const fileInputRef = useRef(null);
 
+  // Listen for tab switch events
+  React.useEffect(() => {
+    const handleSwitchToLibrary = () => {
+      setActiveTab('library');
+    };
+    window.addEventListener('switch-to-library-tab', handleSwitchToLibrary);
+    return () => {
+      window.removeEventListener('switch-to-library-tab', handleSwitchToLibrary);
+    };
+  }, []);
+
   // Analyze agent prompt to extract key information
   const analyzeAgentPrompt = (prompt, fileName = '') => {
     const agent = {

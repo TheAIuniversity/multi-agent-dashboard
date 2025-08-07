@@ -47,6 +47,19 @@ export const useCaseAgents = {
   'enterprise': ['principal-architect', 'backend-architect', 'security-guardian', 'devsecops-compliance', 'legal-compliance-checker'],
   'b2b': ['backend-architect', 'api-devrel-writer', 'principal-architect', 'growth-hacker'],
   
+  // Business & Analytics
+  'business': ['analytics-reporter', 'market-analyzer', 'growth-hacker', 'finance-tracker', 'sprint-prioritizer'],
+  'analytics': ['analytics-reporter', 'data-visualizer', 'dataops-ai', 'statistical-analyst', 'performance-benchmarker'],
+  'data analysis': ['analytics-reporter', 'data-visualizer', 'statistical-analyst', 'dataops-ai', 'data-engineer'],
+  'metrics': ['analytics-reporter', 'performance-benchmarker', 'experiment-tracker', 'statistical-analyst'],
+  'reporting': ['analytics-reporter', 'data-visualizer', 'test-results-analyzer', 'statistical-analyst'],
+  
+  // Research & Development  
+  'research': ['literature-reviewer', 'research-data-collector', 'experiment-tracker', 'hypothesis-tester', 'trend-researcher'],
+  'experiment': ['experiment-tracker', 'hypothesis-tester', 'research-data-collector', 'statistical-analyst'],
+  'study': ['literature-reviewer', 'research-data-collector', 'ux-researcher', 'market-analyzer'],
+  'analysis': ['analytics-reporter', 'statistical-analyst', 'test-results-analyzer', 'data-visualizer'],
+  
   // AI & Machine Learning
   'ai app': ['ai-engineer', 'claude-ux-engineer', 'backend-architect', 'dataops-ai'],
   'machine learning': ['ai-engineer', 'dataops-ai', 'backend-architect', 'performance-benchmarker'],
@@ -69,6 +82,24 @@ export const useCaseAgents = {
   'automation': ['devops-automator', 'test-writer-fixer', 'workflow-optimizer'],
   'code review': ['code-reviewer', 'security-specialist', 'debugging-specialist'],
   'debugging': ['debugging-specialist', 'devops-troubleshooter', 'incident-responder'],
+  
+  // Product & Project Management
+  'product': ['sprint-prioritizer', 'project-shipper', 'feedback-synthesizer', 'growth-hacker', 'market-analyzer'],
+  'project': ['project-shipper', 'sprint-prioritizer', 'workflow-optimizer', 'claude-team-orchestrator'],
+  'management': ['sprint-prioritizer', 'workflow-optimizer', 'claude-team-orchestrator', 'project-shipper'],
+  'planning': ['sprint-prioritizer', 'task-decomposition-expert', 'workflow-optimizer', 'principal-architect'],
+  
+  // Marketing & Content
+  'marketing': ['content-creator', 'growth-hacker', 'app-store-optimizer', 'brand-guardian', 'visual-storyteller'],
+  'content': ['content-creator', 'api-devrel-writer', 'visual-storyteller', 'whimsy-injector'],
+  'seo': ['app-store-optimizer', 'growth-hacker', 'content-creator'],
+  'branding': ['brand-guardian', 'visual-storyteller', 'ui-designer', 'whimsy-injector'],
+  
+  // Finance & Trading
+  'finance': ['finance-tracker', 'data-payments-integration', 'portfolio-optimizer', 'backtesting-engine', 'risk-assessor'],
+  'trading': ['backtesting-engine', 'portfolio-optimizer', 'risk-assessor', 'market-analyzer'],
+  'investment': ['portfolio-optimizer', 'risk-assessor', 'market-analyzer', 'backtesting-engine'],
+  'risk': ['risk-assessor', 'security-specialist', 'legal-compliance-checker', 'incident-responder'],
   
   // Marketing & Growth
   'marketing': ['growth-hacker', 'content-creator', 'brand-guardian', 'app-store-optimizer'],
@@ -270,7 +301,7 @@ export const agentLibrary = [
       'Performance optimization',
       'Edge AI implementation'
     ],
-    installCommand: 'npx agent-ai-engineer',
+    installCommand: 'npx agent-ai-engineer@latest --yes',
     prompt: `You are an AI Engineer specializing in integrating AI/ML features that actually ship to production. Your expertise spans from model selection to production deployment.
 
 ## Dashboard Communication
@@ -335,7 +366,7 @@ Remember: Ship AI features that users love, not just technically impressive demo
       'Performance tuning',
       'Security hardening'
     ],
-    installCommand: 'npx agent-backend-architect',
+    installCommand: 'npx agent-backend-architect@latest --yes',
     prompt: `You are a Backend Architect focused on designing scalable APIs and robust server systems. Your expertise ensures systems can handle millions of users without breaking a sweat.
 
 ## Dashboard Communication
@@ -400,7 +431,7 @@ Remember: Great backends are invisible when working and invaluable when you need
       'Security automation',
       'Cost optimization'
     ],
-    installCommand: 'npx agent-devops-automator',
+    installCommand: 'npx agent-devops-automator@latest --yes',
     prompt: `You are a DevOps Automator who ensures smooth deployments and rock-solid infrastructure. Your mission is to make deployments boring - because boring means reliable.
 
 ## Dashboard Communication
@@ -465,7 +496,7 @@ Remember: The best deployment is one nobody notices happened.`
       'Progressive web apps',
       'Design system implementation'
     ],
-    installCommand: 'npx agent-frontend-developer',
+    installCommand: 'npx agent-frontend-developer@latest --yes',
     prompt: `You are a Frontend Developer who creates blazing-fast, beautiful user interfaces. Your code makes users smile and designers proud.
 
 ## Dashboard Communication
@@ -530,7 +561,7 @@ Remember: Fast, beautiful, and accessible - pick all three.`
       'App store deployment',
       'Mobile-specific features'
     ],
-    installCommand: 'npx agent-mobile-app-builder',
+    installCommand: 'npx agent-mobile-app-builder@latest --yes',
     prompt: `You are a Mobile App Builder creating native experiences that users love. Your apps feel right at home on both iOS and Android.
 
 ## Dashboard Communication
@@ -594,7 +625,7 @@ Remember: Make it feel native, make it feel fast, make it feel right.`
       'Quick demos',
       'Startup development'
     ],
-    installCommand: 'npx agent-rapid-prototyper',
+    installCommand: 'npx agent-rapid-prototyper@latest --yes',
     prompt: `You are a Rapid Prototyper who ships MVPs at lightning speed. Your superpower is knowing what to build and what to skip.
 
 ## Dashboard Communication
@@ -659,7 +690,7 @@ Remember: Done is better than perfect, but make it good enough to wow.`
       'Performance testing',
       'Security testing'
     ],
-    installCommand: 'npx agent-test-writer-fixer',
+    installCommand: 'npx agent-test-writer-fixer@latest --yes',
     prompt: `You are a Test Writer & Fixer who ensures code quality through comprehensive testing. Your tests catch bugs before users do.
 
 ## Dashboard Communication
@@ -732,7 +763,7 @@ Remember: A bug caught in testing saves ten in production.`
       'Roadmap planning',
       'User satisfaction'
     ],
-    installCommand: 'npx agent-feedback-synthesizer',
+    installCommand: 'npx agent-feedback-synthesizer@latest --yes',
     prompt: `You are a Feedback Synthesizer who transforms user complaints and suggestions into actionable product improvements. You find gold in feedback data.
 
 ## Dashboard Communication
@@ -797,7 +828,7 @@ Remember: Every complaint is a feature request in disguise.`
       'Risk mitigation',
       'Value delivery'
     ],
-    installCommand: 'npx agent-sprint-prioritizer',
+    installCommand: 'npx agent-sprint-prioritizer@latest --yes',
     prompt: `You are a Sprint Prioritizer who maximizes value delivery in every sprint. Your superpower is knowing what to ship now and what can wait.
 
 ## Dashboard Communication
@@ -861,7 +892,7 @@ Remember: Ship the right things, not just more things.`
       'Strategic planning',
       'Product positioning'
     ],
-    installCommand: 'npx agent-trend-researcher',
+    installCommand: 'npx agent-trend-researcher@latest --yes',
     prompt: `You are a Trend Researcher who spots viral opportunities before they explode. Your radar catches weak signals that become strong trends.
 
 ## Dashboard Communication
@@ -927,7 +958,7 @@ Remember: The best time to ride a wave is right before everyone sees it coming.`
       'Review responses',
       'Ranking improvement'
     ],
-    installCommand: 'npx agent-app-store-optimizer',
+    installCommand: 'npx agent-app-store-optimizer@latest --yes',
     prompt: `You are an App Store Optimizer who makes apps discoverable and irresistible. Your optimizations turn browsers into installers.
 
 ## Dashboard Communication
@@ -992,7 +1023,7 @@ Remember: First impressions happen in the app store, not the app.`
       'Product descriptions',
       'Landing pages'
     ],
-    installCommand: 'npx agent-content-creator',
+    installCommand: 'npx agent-content-creator@latest --yes',
     prompt: `You are a Content Creator who produces engaging content across all platforms. Your words convert visitors into customers.
 
 ## Dashboard Communication
@@ -1056,7 +1087,7 @@ Remember: Great content doesn't interrupt, it attracts.`
       'Funnel optimization',
       'Retention improvement'
     ],
-    installCommand: 'npx agent-growth-hacker',
+    installCommand: 'npx agent-growth-hacker@latest --yes',
     prompt: `You are a Growth Hacker who finds and exploits viral growth loops. Your experiments turn trickles into floods.
 
 ## Dashboard Communication
@@ -1122,7 +1153,7 @@ Remember: Growth hacking is about finding unfair advantages, legally.`
       'Brand refresh',
       'Style documentation'
     ],
-    installCommand: 'npx agent-brand-guardian',
+    installCommand: 'npx agent-brand-guardian@latest --yes',
     prompt: `You are a Brand Guardian who ensures visual consistency across all touchpoints. Your vigilance keeps brands recognizable and trustworthy.
 
 ## Dashboard Communication
@@ -1187,7 +1218,7 @@ Remember: A strong brand is consistent, not rigid.`
       'Style guides',
       'Developer handoff'
     ],
-    installCommand: 'npx agent-ui-designer',
+    installCommand: 'npx agent-ui-designer@latest --yes',
     prompt: `You are a UI Designer who creates interfaces that are beautiful and buildable. Your designs make developers smile.
 
 ## Dashboard Communication
@@ -1251,7 +1282,7 @@ Remember: Great UI design is invisible when it works perfectly.`
       'Persona development',
       'Journey optimization'
     ],
-    installCommand: 'npx agent-ux-researcher',
+    installCommand: 'npx agent-ux-researcher@latest --yes',
     prompt: `You are a UX Researcher who uncovers insights that transform products. Your research turns assumptions into facts.
 
 ## Dashboard Communication
@@ -1315,7 +1346,7 @@ Remember: Users don't always know what they want, but they always know what frus
       'Data stories',
       'Brand illustrations'
     ],
-    installCommand: 'npx agent-visual-storyteller',
+    installCommand: 'npx agent-visual-storyteller@latest --yes',
     prompt: `You are a Visual Storyteller who creates graphics that communicate instantly. Your visuals are worth more than a thousand words.
 
 ## Dashboard Communication
@@ -1379,7 +1410,7 @@ Remember: The best visuals don't need captions to be understood.`
       'Onboarding',
       'Feature reveals'
     ],
-    installCommand: 'npx agent-whimsy-injector',
+    installCommand: 'npx agent-whimsy-injector@latest --yes',
     prompt: `You are a Whimsy Injector who adds moments of delight throughout the user experience. Your touches make users smile unexpectedly.
 
 ## Dashboard Communication
@@ -1452,7 +1483,7 @@ Remember: Delight is in the details that users didn't expect but love.`
       'Decision validation',
       'Rollout strategies'
     ],
-    installCommand: 'npx agent-experiment-tracker',
+    installCommand: 'npx agent-experiment-tracker@latest --yes',
     prompt: `You are an Experiment Tracker who validates features with data, not opinions. Your experiments reveal what users actually want.
 
 ## Dashboard Communication
@@ -1523,7 +1554,7 @@ Remember: Good experiments kill bad ideas fast and scale good ones faster.`
       'Hotfix deployments',
       'Coordinated rollouts'
     ],
-    installCommand: 'npx agent-project-shipper',
+    installCommand: 'npx agent-project-shipper@latest --yes',
     prompt: `You are a Project Shipper who ensures smooth launches every time. Your releases are events, not emergencies.
 
 ## Dashboard Communication
@@ -1587,7 +1618,7 @@ Remember: A good launch is one where the only surprise is how smooth it was.`
       'Cross-team collaboration',
       'Productivity optimization'
     ],
-    installCommand: 'npx agent-studio-producer',
+    installCommand: 'npx agent-studio-producer@latest --yes',
     prompt: `You are a Studio Producer who keeps teams in flow state. Your superpower is removing blockers before they block.
 
 ## Dashboard Communication
@@ -1654,7 +1685,7 @@ Remember: The best producers are invisible when everything flows smoothly.`
       'ROI analysis',
       'Predictive insights'
     ],
-    installCommand: 'npx agent-analytics-reporter',
+    installCommand: 'npx agent-analytics-reporter@latest --yes',
     prompt: `You are an Analytics Reporter who transforms raw data into clear insights. Your reports drive decisions, not just document them.
 
 ## Dashboard Communication
@@ -1718,7 +1749,7 @@ Remember: Data without insight is just numbers. Make it mean something.`
       'Investment analysis',
       'Profitability tracking'
     ],
-    installCommand: 'npx agent-finance-tracker',
+    installCommand: 'npx agent-finance-tracker@latest --yes',
     prompt: `You are a Finance Tracker who ensures the studio stays profitable while investing wisely. Your insights balance growth with sustainability.
 
 ## Dashboard Communication
@@ -1782,7 +1813,7 @@ Remember: Good finance management enables innovation, not restricts it.`
       'Disaster planning',
       'System monitoring'
     ],
-    installCommand: 'npx agent-infrastructure-maintainer',
+    installCommand: 'npx agent-infrastructure-maintainer@latest --yes',
     prompt: `You are an Infrastructure Maintainer who keeps systems running smoothly at scale. Your work is invisible until it isn't.
 
 ## Dashboard Communication
@@ -1846,7 +1877,7 @@ Remember: The best infrastructure is boring infrastructure - it just works.`
       'Contract review',
       'Risk mitigation'
     ],
-    installCommand: 'npx agent-legal-compliance-checker',
+    installCommand: 'npx agent-legal-compliance-checker@latest --yes',
     prompt: `You are a Legal Compliance Checker who keeps the studio safe while enabling speed. Your guidance prevents problems, not progress.
 
 ## Dashboard Communication
@@ -1910,7 +1941,7 @@ Remember: Good compliance enables business, not blocks it.`
       'Documentation',
       'Community management'
     ],
-    installCommand: 'npx agent-support-responder',
+    installCommand: 'npx agent-support-responder@latest --yes',
     prompt: `You are a Support Responder who turns frustrated users into happy advocates. Your responses solve problems and build relationships.
 
 ## Dashboard Communication
@@ -1976,7 +2007,7 @@ Remember: Every support interaction is a chance to create a fan.`
       'Performance testing',
       'Documentation accuracy'
     ],
-    installCommand: 'npx agent-api-tester',
+    installCommand: 'npx agent-api-tester@latest --yes',
     prompt: `You are an API Tester who ensures APIs are rock solid under any condition. Your tests catch issues before they impact users.
 
 ## Dashboard Communication
@@ -2040,7 +2071,7 @@ Remember: A well-tested API is a trusted API.`
       'Bottleneck analysis',
       'Optimization planning'
     ],
-    installCommand: 'npx agent-performance-benchmarker',
+    installCommand: 'npx agent-performance-benchmarker@latest --yes',
     prompt: `You are a Performance Benchmarker obsessed with speed. Your optimizations make applications fly.
 
 ## Dashboard Communication
@@ -2104,7 +2135,7 @@ Remember: Performance is a feature, not a nice-to-have.`
       'Process improvement',
       'Risk identification'
     ],
-    installCommand: 'npx agent-test-results-analyzer',
+    installCommand: 'npx agent-test-results-analyzer@latest --yes',
     prompt: `You are a Test Results Analyzer who finds patterns others miss. Your insights prevent future failures.
 
 ## Dashboard Communication
@@ -2168,7 +2199,7 @@ Remember: Every test failure is a lesson waiting to be learned.`
       'Team adoption',
       'Process improvement'
     ],
-    installCommand: 'npx agent-tool-evaluator',
+    installCommand: 'npx agent-tool-evaluator@latest --yes',
     prompt: `You are a Tool Evaluator who separates hype from help. Your evaluations save time and money.
 
 ## Dashboard Communication
@@ -2232,7 +2263,7 @@ Remember: The best tool is the one your team will actually use.`
       'Team optimization',
       'Productivity boost'
     ],
-    installCommand: 'npx agent-workflow-optimizer',
+    installCommand: 'npx agent-workflow-optimizer@latest --yes',
     prompt: `You are a Workflow Optimizer who makes teams faster without working harder. Your optimizations compound over time.
 
 ## Dashboard Communication
@@ -2298,7 +2329,7 @@ Remember: Small workflow improvements compound into massive productivity gains.`
       'Goal setting',
       'Team building'
     ],
-    installCommand: 'npx agent-studio-coach',
+    installCommand: 'npx agent-studio-coach@latest --yes',
     prompt: `You are a Studio Coach who brings out the best in every AI agent. Your guidance turns good teams into great ones.
 
 ## Dashboard Communication
@@ -2369,7 +2400,7 @@ Remember: Great coaches make everyone around them better.`
       'Service decomposition',
       'Integration planning'
     ],
-    installCommand: 'npx agent-principal-architect',
+    installCommand: 'npx agent-principal-architect@latest --yes',
     prompt: `You are a Principal Architect who sets technical direction and ensures system coherence. You design robust, scalable architectures that enable teams to move fast without breaking things.
 
 ## Dashboard Communication
@@ -2434,7 +2465,7 @@ Remember: Good architecture enables speed, not hinders it. Design for change, bu
       'Intent-based navigation',
       'LLM integration'
     ],
-    installCommand: 'npx agent-claude-ux-engineer',
+    installCommand: 'npx agent-claude-ux-engineer@latest --yes',
     prompt: `You are a Claude UX Engineer specializing in AI-first user experiences. You design interfaces that make LLM interactions intuitive, powerful, and delightful.
 
 ## Dashboard Communication
@@ -2499,7 +2530,7 @@ Remember: The best AI interface is invisible until needed, then incredibly power
       'Chaos engineering',
       'Vulnerability assessment'
     ],
-    installCommand: 'npx agent-ai-penetration-qa',
+    installCommand: 'npx agent-ai-penetration-qa@latest --yes',
     prompt: `You are an AI Penetration QA specialist who finds and exploits weaknesses before they reach production. You think like an attacker to build better defenses.
 
 ## Dashboard Communication
@@ -2564,7 +2595,7 @@ Remember: If it can break, it will break. Find it first.`
       'Data quality checks',
       'Real-time dashboards'
     ],
-    installCommand: 'npx agent-dataops-ai',
+    installCommand: 'npx agent-dataops-ai@latest --yes',
     prompt: `You are a DataOps AI specialist who ensures data flows smoothly and insights flow faster. You build observability into everything.
 
 ## Dashboard Communication
@@ -2629,7 +2660,7 @@ Remember: Data is the new oil, but only if it flows to the right place at the ri
       'SDK documentation',
       'Developer onboarding'
     ],
-    installCommand: 'npx agent-api-devrel-writer',
+    installCommand: 'npx agent-api-devrel-writer@latest --yes',
     prompt: `You are an API DevRel Writer who makes complex APIs feel simple. You write documentation that turns frustrated developers into happy ones.
 
 ## Dashboard Communication
@@ -2694,7 +2725,7 @@ Remember: Great docs turn your API from a tool into a product developers love.`
       'Admin interfaces',
       'Revenue optimization'
     ],
-    installCommand: 'npx agent-data-payments-integration',
+    installCommand: 'npx agent-data-payments-integration@latest --yes',
     prompt: `You are a Data Payments Integration specialist who makes money flow as smoothly as data. You build robust systems that handle the business side of software.
 
 ## Dashboard Communication
@@ -2759,7 +2790,7 @@ Remember: Every transaction is a promise. Make sure your code keeps it.`
       'Progress tracking',
       'Resource optimization'
     ],
-    installCommand: 'npx agent-claude-team-orchestrator',
+    installCommand: 'npx agent-claude-team-orchestrator@latest --yes',
     prompt: `You are the Claude Team Orchestrator who conducts the symphony of AI agents. You ensure every agent plays their part at the perfect time.
 
 ## Dashboard Communication
@@ -2824,7 +2855,7 @@ Remember: A well-orchestrated team achieves more than the sum of its parts.`
       'Risk management',
       'Compliance reporting'
     ],
-    installCommand: 'npx agent-devsecops-compliance',
+    installCommand: 'npx agent-devsecops-compliance@latest --yes',
     prompt: `You are a DevSecOps Compliance specialist who makes security and compliance seamless. You automate the hard parts of keeping systems safe and compliant.
 
 ## Dashboard Communication
@@ -2889,7 +2920,7 @@ Remember: Security is not a feature, it's a foundation. Build it in, don't bolt 
       'Translation workflows',
       'Locale testing'
     ],
-    installCommand: 'npx agent-globalization-agent',
+    installCommand: 'npx agent-globalization-agent@latest --yes',
     prompt: `You are a Globalization Agent who makes software feel native everywhere. You understand that localization is more than translation.
 
 ## Dashboard Communication
@@ -2957,7 +2988,7 @@ Remember: Think globally, code locally. Every user deserves a native experience.
       'Architecture validation',
       'Compliance verification'
     ],
-    installCommand: 'npx agent-code-reviewer',
+    installCommand: 'npx agent-code-reviewer@latest --yes',
     prompt: `You are a Senior Code Reviewer with 15+ years of experience across multiple tech stacks. You provide thorough, constructive code reviews focusing on security, performance, and maintainability.
 
 ## Core Expertise
@@ -3006,7 +3037,7 @@ Remember: Be thorough but constructive. Every review should help developers grow
       'Cost management',
       'DR planning'
     ],
-    installCommand: 'npx agent-terraform-specialist',
+    installCommand: 'npx agent-terraform-specialist@latest --yes',
     prompt: `You are a Terraform Specialist expert in Infrastructure as Code and multi-cloud deployments. You create maintainable, secure, and cost-effective infrastructure.
 
 ## Core Competencies
@@ -3055,7 +3086,7 @@ Remember: Infrastructure as Code is not just automation, it's about creating rel
       'Architecture design',
       'Testing implementation'
     ],
-    installCommand: 'npx agent-react-specialist',
+    installCommand: 'npx agent-react-specialist@latest --yes',
     prompt: `You are a React Specialist with deep expertise in React 19 and modern frontend patterns. You build performant, maintainable React applications using the latest features and best practices.
 
 ## React 19 Expertise
@@ -3104,7 +3135,7 @@ Remember: Write React code that's a joy to maintain, not just to create.`
       'Background tasks',
       'Real-time systems'
     ],
-    installCommand: 'npx agent-python-backend-specialist',
+    installCommand: 'npx agent-python-backend-specialist@latest --yes',
     prompt: `You are a Python Backend Specialist with expertise in FastAPI, Django, and scalable Python systems. You build high-performance backend services that handle millions of requests.
 
 ## Technical Expertise
@@ -3153,7 +3184,7 @@ Remember: Python can be fast when you know how to make it fast.`
       'Integration failures',
       'Crash analysis'
     ],
-    installCommand: 'npx agent-debugging-specialist',
+    installCommand: 'npx agent-debugging-specialist@latest --yes',
     prompt: `You are a Debugging Specialist who can solve the most complex production issues. You use systematic approaches to identify root causes quickly and effectively.
 
 ## Debugging Methodology
@@ -3203,7 +3234,7 @@ Remember: Every bug has a logical explanation. Stay calm, be methodical, and the
       'DR planning',
       'Compliance implementation'
     ],
-    installCommand: 'npx agent-cloud-architect',
+    installCommand: 'npx agent-cloud-architect@latest --yes',
     prompt: `You are a Cloud Architect specializing in designing scalable, secure, and cost-effective cloud infrastructure across AWS, Azure, and GCP.
 
 ## Cloud Expertise
@@ -3253,7 +3284,7 @@ Remember: The best cloud architecture is invisible to users but visible to accou
       'Replication setup',
       'Data recovery'
     ],
-    installCommand: 'npx agent-database-specialist',
+    installCommand: 'npx agent-database-specialist@latest --yes',
     prompt: `You are a Database Specialist with deep expertise in both SQL and NoSQL databases. You design schemas that scale and queries that fly.
 
 ## Database Expertise
@@ -3302,7 +3333,7 @@ Remember: A well-designed database is the foundation of a performant application
       'Threat assessment',
       'Security training'
     ],
-    installCommand: 'npx agent-security-specialist',
+    installCommand: 'npx agent-security-specialist@latest --yes',
     prompt: `You are a Security Specialist focused on application security, penetration testing, and compliance. You think like an attacker to defend like a champion.
 
 ## Security Expertise
@@ -3352,7 +3383,7 @@ Remember: Security is not a feature, it's a mindset that permeates every line of
       'Model monitoring',
       'Data pipelines'
     ],
-    installCommand: 'npx agent-ml-engineer',
+    installCommand: 'npx agent-ml-engineer@latest --yes',
     prompt: `You are an ML Engineer specializing in productionizing machine learning models. You bridge the gap between data science and engineering.
 
 ## ML Engineering Expertise
@@ -3401,7 +3432,7 @@ Remember: A model in a notebook is worth nothing; a model in production is worth
       'Analytics infrastructure',
       'Data migration'
     ],
-    installCommand: 'npx agent-data-engineer',
+    installCommand: 'npx agent-data-engineer@latest --yes',
     prompt: `You are a Data Engineer who builds robust data pipelines and architectures. You ensure data flows smoothly from source to insights.
 
 ## Technical Stack
@@ -3450,7 +3481,7 @@ Remember: Bad data is worse than no data. Build pipelines that deliver trust.`
       'Incident response',
       'Post-mortems'
     ],
-    installCommand: 'npx agent-devops-troubleshooter',
+    installCommand: 'npx agent-devops-troubleshooter@latest --yes',
     prompt: `You are a DevOps Troubleshooter specializing in solving production issues quickly and preventing them from recurring.
 
 ## Troubleshooting Expertise
@@ -3501,7 +3532,7 @@ Remember: In production, speed matters but accuracy matters more. Fix it right, 
       'Data extraction',
       'Classification tasks'
     ],
-    installCommand: 'npx agent-prompt-engineer',
+    installCommand: 'npx agent-prompt-engineer@latest --yes',
     prompt: `You are a Prompt Engineer specializing in optimizing prompts for Large Language Models. You craft prompts that consistently deliver high-quality outputs.
 
 ## Prompt Engineering Techniques
@@ -3557,7 +3588,7 @@ Remember: A well-crafted prompt is worth a thousand parameters.`
       'Mobile backends',
       'Microservices integration'
     ],
-    installCommand: 'npx agent-graphql-architect',
+    installCommand: 'npx agent-graphql-architect@latest --yes',
     prompt: `You are a GraphQL Architect specializing in designing efficient GraphQL APIs and federation architectures.
 
 ## GraphQL Expertise
@@ -3613,7 +3644,7 @@ Remember: GraphQL is not REST. Embrace the graph, think in relationships.`
       'Migration planning',
       'System integration'
     ],
-    installCommand: 'npx agent-task-decomposition-expert',
+    installCommand: 'npx agent-task-decomposition-expert@latest --yes',
     prompt: `You are a Task Decomposition Expert who transforms complex goals into clear, actionable tasks with optimal execution strategies.
 
 ## Decomposition Methodology
@@ -3670,7 +3701,7 @@ Remember: A complex task well-decomposed is half completed.`
       'Service failures',
       'Emergency response'
     ],
-    installCommand: 'npx agent-incident-responder',
+    installCommand: 'npx agent-incident-responder@latest --yes',
     prompt: `You are an Incident Responder who manages production incidents with calm efficiency and prevents future occurrences.
 
 ## Incident Management Process
@@ -3727,7 +3758,7 @@ Remember: Incidents are learning opportunities, not blame sessions. Focus on sys
       'Load balancer setup',
       'CDN implementation'
     ],
-    installCommand: 'npx agent-network-engineer',
+    installCommand: 'npx agent-network-engineer@latest --yes',
     prompt: `You are a Network Engineer specializing in designing robust network architectures and solving connectivity issues.
 
 ## Network Expertise
@@ -3786,7 +3817,7 @@ Remember: The network is the computer, and when it fails, everything fails.`
       'Academic papers',
       'Research synthesis'
     ],
-    installCommand: 'npx agent-literature-reviewer',
+    installCommand: 'npx agent-literature-reviewer@latest --yes',
     prompt: `You are a Literature Review Specialist expert in systematic research methodology and academic synthesis. You help researchers navigate vast bodies of literature efficiently.
 
 ## Dashboard Integration
@@ -3858,7 +3889,7 @@ Remember: A great literature review tells a story of knowledge evolution.`
       'Survey analysis',
       'Quality control'
     ],
-    installCommand: 'npx agent-hypothesis-tester',
+    installCommand: 'npx agent-hypothesis-tester@latest --yes',
     prompt: `You are a Hypothesis Testing Expert specializing in rigorous statistical analysis and experimental design. You ensure research conclusions are statistically sound.
 
 ## Dashboard Communication
@@ -3929,7 +3960,7 @@ Remember: Statistical significance ≠ practical importance. Always consider eff
       'Competitive analysis',
       'Public data collection'
     ],
-    installCommand: 'npx agent-research-data-collector',
+    installCommand: 'npx agent-research-data-collector@latest --yes',
     prompt: `You are a Research Data Collector specializing in automated data gathering and quality assurance. You build robust pipelines for research data acquisition.
 
 ## Dashboard Integration
@@ -4002,7 +4033,7 @@ Remember: Quality data is the foundation of quality research. Validate everythin
       'Entry/exit points',
       'Portfolio monitoring'
     ],
-    installCommand: 'npx agent-market-analyzer',
+    installCommand: 'npx agent-market-analyzer@latest --yes',
     prompt: `You are a Market Analysis Engine specialized in technical analysis and market signal generation. You identify trading opportunities through systematic analysis.
 
 ## Dashboard Integration
@@ -4073,7 +4104,7 @@ Remember: No single indicator is perfect. Always seek confluence across multiple
       'Performance attribution',
       'Scenario analysis'
     ],
-    installCommand: 'npx agent-portfolio-optimizer',
+    installCommand: 'npx agent-portfolio-optimizer@latest --yes',
     prompt: `You are a Portfolio Optimization AI implementing modern portfolio theory and quantitative strategies. You construct optimal portfolios balancing risk and return.
 
 ## Dashboard Integration
@@ -4144,7 +4175,7 @@ Remember: Diversification is the only free lunch in investing. Optimize for robu
       'Volatility trading',
       'Hedge strategies'
     ],
-    installCommand: 'npx agent-risk-assessor',
+    installCommand: 'npx agent-risk-assessor@latest --yes',
     prompt: `You are a Risk Assessment Specialist focused on protecting capital and optimizing risk-adjusted returns. You quantify and manage all forms of market risk.
 
 ## Dashboard Integration
@@ -4215,7 +4246,7 @@ Remember: The first rule of trading is to preserve capital. Risk management come
       'Robustness testing',
       'Trade analysis'
     ],
-    installCommand: 'npx agent-backtesting-engine',
+    installCommand: 'npx agent-backtesting-engine@latest --yes',
     prompt: `You are a Backtesting Engine specialized in rigorous strategy validation and performance analysis. You ensure strategies work in real market conditions.
 
 ## Dashboard Integration
@@ -4288,7 +4319,7 @@ Remember: Past performance doesn't guarantee future results. Test for robustness
       'Data integration',
       'Lake formation'
     ],
-    installCommand: 'npx agent-etl-pipeline-builder',
+    installCommand: 'npx agent-etl-pipeline-builder@latest --yes',
     prompt: `You are an ETL Pipeline Architect specializing in robust data pipeline design and implementation. You build scalable, maintainable data infrastructure.
 
 ## Dashboard Integration
@@ -4359,7 +4390,7 @@ Remember: A good pipeline is invisible when working, obvious when broken.`
       'Customer analytics',
       'Clinical studies'
     ],
-    installCommand: 'npx agent-statistical-analyst',
+    installCommand: 'npx agent-statistical-analyst@latest --yes',
     prompt: `You are a Statistical Analysis Expert with deep knowledge of statistical methods and their applications. You extract insights through rigorous statistical modeling.
 
 ## Dashboard Integration
@@ -4430,7 +4461,7 @@ Remember: All models are wrong, but some are useful. Focus on interpretability a
       'Exploratory analysis',
       'Public data viz'
     ],
-    installCommand: 'npx agent-data-visualizer',
+    installCommand: 'npx agent-data-visualizer@latest --yes',
     prompt: `You are a Data Visualization Designer creating compelling visual narratives from complex data. You make data accessible and actionable through design.
 
 ## Dashboard Integration
@@ -4501,7 +4532,7 @@ Remember: The best visualization is the one that leads to understanding and acti
       'Financial auditing',
       'Predictive maintenance'
     ],
-    installCommand: 'npx agent-anomaly-detector',
+    installCommand: 'npx agent-anomaly-detector@latest --yes',
     prompt: `You are an Anomaly Detection Specialist identifying unusual patterns and outliers in complex datasets. You protect systems through intelligent monitoring.
 
 ## Dashboard Integration
