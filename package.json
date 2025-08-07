@@ -1,0 +1,30 @@
+{
+  "name": "multi-agent-dev-team",
+  "version": "1.0.0",
+  "description": "A complete system for orchestrating multiple Claude Code agents with real-time observability, enabling parallel development, infinite generation loops, and intelligent automation.",
+  "type": "module",
+  "main": "playwright-test-dashboard.js",
+  "directories": {
+    "doc": "docs",
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "publish-agents": "node scripts/publish-all-agents.js",
+    "update-scope": "node scripts/update-package-scope.js",
+    "prepare-publish": "npm run update-scope && npm run publish-agents"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "playwright": "^1.54.1"
+  },
+  "dependencies": {
+    "@digitalocean/mcp": "^1.0.7",
+    "@faker-js/faker": "^9.9.0",
+    "@sendgrid/mail": "^8.1.5",
+    "better-sqlite3": "^12.2.0",
+    "node-fetch": "^3.3.2"
+  }
+}

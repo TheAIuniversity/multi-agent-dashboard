@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+
+# Database files - NEVER commit these!
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# Environment files - NEVER commit these!
+.env
+.env.local
+.env.production
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Backups
+*.backup
+*.bak
+
+# Session files
+sessions/
+
+# Temporary files
+tmp/
+temp/
+
+# Audit logs
+audit.log
+audit/
+
+# SSL certificates
+*.pem
+*.key
+*.crt

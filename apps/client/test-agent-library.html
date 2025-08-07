@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Agent Library</title>
+</head>
+<body>
+    <h1>Testing Agent Library Data</h1>
+    <div id="output"></div>
+    
+    <script type="module">
+        import { agentLibrary, getCategories } from './src/agentLibraryData.js';
+        
+        const output = document.getElementById('output');
+        
+        output.innerHTML = `
+            <p>Total agents: ${agentLibrary.length}</p>
+            <p>Categories: ${getCategories().join(', ')}</p>
+            <h2>First 5 agents:</h2>
+            <ul>
+                ${agentLibrary.slice(0, 5).map(agent => `
+                    <li>${agent.name} - ${agent.category} - Icon: ${agent.icon}</li>
+                `).join('')}
+            </ul>
+        `;
+    </script>
+</body>
+</html>

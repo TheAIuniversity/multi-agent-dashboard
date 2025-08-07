@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import responsive styles */
+@import './responsive.css';
+
+@layer base {
+  body {
+    @apply bg-claude-bg text-claude-text;
+  }
+  
+  * {
+    @apply border-claude-border;
+  }
+}
+
+@layer components {
+  .event-card {
+    @apply bg-claude-surface border border-claude-border rounded-lg p-5 hover:border-claude-muted transition-all duration-200;
+  }
+  
+  .filter-select {
+    @apply bg-claude-surface border border-claude-border rounded-md px-4 py-2.5 text-claude-text focus:outline-none focus:border-claude-accent focus:ring-2 focus:ring-claude-accent/20 transition-all duration-200 hover:border-claude-muted;
+  }
+  
+  .status-badge {
+    @apply px-3 py-1.5 rounded-md text-xs font-medium shadow-sm;
+  }
+  
+  .pulse-dot {
+    @apply w-2 h-2 rounded-full animate-pulse;
+  }
+  
+  /* Improved button styles */
+  button {
+    @apply transition-all duration-200;
+  }
+  
+  /* Card hover effects */
+  .card-hover {
+    @apply hover:shadow-lg hover:border-claude-accent/30 transition-all duration-200;
+  }
+  
+  /* Section spacing */
+  section {
+    @apply mb-8;
+  }
+  
+  /* Icon alignment */
+  .icon-text {
+    @apply flex items-center gap-2;
+  }
+}
+
+/* Activity Pulse Animation */
+@keyframes slideLeft {
+  from {
+    left: 100%;
+  }
+  to {
+    left: -60px;
+  }
+}
+
+.animate-slide-left {
+  animation: slideLeft 25s linear forwards;
+}
+
+/* Custom scrollbar for timeline */
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-thumb-claude-border::-webkit-scrollbar {
+  height: 4px;
+}
+
+.scrollbar-thumb-claude-border::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thumb-claude-border::-webkit-scrollbar-thumb {
+  background: var(--claude-border);
+  border-radius: 2px;
+}
+
+.scrollbar-thumb-claude-border::-webkit-scrollbar-thumb:hover {
+  background: var(--claude-muted);
+}

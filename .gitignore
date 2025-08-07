@@ -1,0 +1,17 @@
+node_modules/
+.venv/
+*.pyc
+__pycache__/
+.DS_Store
+.env
+.env.local
+dist/
+build/
+*.log
+npm-debug.log*
+.agents/
+projects/
+events.db
+*.db
+.claude/
+EOF < /dev/null
