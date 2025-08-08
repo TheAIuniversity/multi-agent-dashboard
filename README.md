@@ -21,7 +21,7 @@ Real-time observability and monitoring dashboard for Claude Code AI agents. Trac
 ### Install and Run
 
 ```bash
-npx multi-agent-dashboard-connect
+npx multi-agent-dashboard-connect@latest
 ```
 
 That's it! The dashboard will automatically:
@@ -52,24 +52,24 @@ cd ../client && npm run dev
 Install any specialized agent with a single command:
 
 ### Core Development Agents
-- `npx agent-ai-engineer` - Full-stack AI development
-- `npx agent-backend-architect` - Backend system design
-- `npx agent-frontend-developer` - UI/UX implementation
-- `npx agent-database-architect` - Database design and optimization
-- `npx agent-devops-engineer` - CI/CD and infrastructure
+- `npx agent-ai-engineer@latest --yes` - Full-stack AI development
+- `npx agent-backend-architect@latest --yes` - Backend system design
+- `npx agent-frontend-developer@latest --yes` - UI/UX implementation
+- `npx agent-database-architect@latest --yes` - Database design and optimization
+- `npx agent-devops-engineer@latest --yes` - CI/CD and infrastructure
 
 ### Testing & Quality
-- `npx agent-qa-engineer` - Comprehensive testing
-- `npx agent-code-reviewer` - Code quality analysis
-- `npx agent-security-auditor` - Security vulnerability scanning
-- `npx agent-performance-optimizer` - Performance tuning
+- `npx agent-qa-engineer@latest --yes` - Comprehensive testing
+- `npx agent-code-reviewer@latest --yes` - Code quality analysis
+- `npx agent-security-auditor@latest --yes` - Security vulnerability scanning
+- `npx agent-performance-optimizer@latest --yes` - Performance tuning
 
 ### Specialized Agents
-- `npx agent-data-scientist` - ML/AI model development
-- `npx agent-blockchain-developer` - Web3 and smart contracts
-- `npx agent-game-developer` - Game development
-- `npx agent-mobile-developer` - iOS/Android apps
-- `npx agent-cloud-architect` - Cloud infrastructure
+- `npx agent-data-scientist@latest --yes` - ML/AI model development
+- `npx agent-blockchain-developer@latest --yes` - Web3 and smart contracts
+- `npx agent-game-developer@latest --yes` - Game development
+- `npx agent-mobile-developer@latest --yes` - iOS/Android apps
+- `npx agent-cloud-architect@latest --yes` - Cloud infrastructure
 
 [View all 68 agents →](./npm-packages/AGENTS.md)
 
