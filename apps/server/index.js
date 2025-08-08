@@ -25,6 +25,7 @@ import {
 } from './middleware/security.js';
 import { authMiddleware, requireAuth, initAuthTables, setupAuthRoutes } from './auth.mjs';
 import { createApiKey, listApiKeys, revokeApiKey, verifyApiKey } from './api-keys.js';
+import { generateStopEventSummary } from './summary-service.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -292,12 +293,24 @@ app.get('/health', (req, res) => {
 });
 
 // Receive events from hooks (with API key auth)
-app.post('/events', apiKeyAuth, validateEvent, handleValidationErrors, (req, res) => {
+app.post('/events', apiKeyAuth, validateEvent, handleValidationErrors, async (req, res) => {
   const event = req.body;
   
   // Require authentication for events
   if (!req.user) {
     return res.status(401).json({ error: 'API key required' });
+  }
+  
+  // Generate AI summary for Stop events
+  let aiSummary = null;
+  if (event.event_type === 'Stop' || event.event_type === 'SubAgentStop') {
+    try {
+      aiSummary = await generateStopEventSummary(event.session_id, db);
+      console.log(`🤖 Generated AI summary for session ${event.session_id}:`, aiSummary);
+    } catch (error) {
+      console.error('Failed to generate AI summary:', error);
+      aiSummary = 'Task completed.';
+    }
   }
   
   // Store in database with user isolation
@@ -311,7 +324,7 @@ app.post('/events', apiKeyAuth, validateEvent, handleValidationErrors, (req, res
     event.session_id || 'unknown',
     event.event_type || 'unknown',
     JSON.stringify(event.payload || {}),
-    event.summary || null,
+    aiSummary || event.summary || null,  // Use AI summary if available
     req.user.id,  // Always associate with authenticated user
     function(err) {
       if (err) {
@@ -320,15 +333,19 @@ app.post('/events', apiKeyAuth, validateEvent, handleValidationErrors, (req, res
         return;
       }
       
-      // Add database ID to event
+      // Add database ID and AI summary to event
       event.id = this.lastID;
       event.timestamp = event.timestamp || new Date().toISOString();
       event.user_id = req.user.id;
+      if (aiSummary) {
+        event.ai_summary = aiSummary;
+        event.summary = aiSummary;
+      }
       
       // Broadcast ONLY to WebSocket clients of the same user
       broadcastEventToUser(event, req.user.id);
       
-      res.json({ success: true, id: event.id });
+      res.json({ success: true, id: event.id, ai_summary: aiSummary });
     }
   );
   
