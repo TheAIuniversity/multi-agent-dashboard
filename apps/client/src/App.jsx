@@ -825,26 +825,29 @@ function App() {
                 </span>
               </div>
               
-              {event.summary && (
-                <div className="text-sm text-claude-text mb-2">
-                  {sanitizeText(event.summary)}
-                </div>
-              )}
-              
-              {/* AI Summary for Stop events */}
-              {(event.event_type === 'Stop' || event.event_type === 'SubAgentStop') && event.ai_summary && (
-                <div className="bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/30 rounded-lg p-3 mb-2">
+              {/* Show AI Summary for Stop events, regular summary for others */}
+              {(event.event_type === 'Stop' || event.event_type === 'SubAgentStop') && event.ai_summary ? (
+                <div className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 border border-purple-500/40 rounded-lg p-3 mb-2">
                   <div className="flex items-start gap-2">
-                    <span className="text-purple-400">🤖</span>
+                    <span className="text-lg">🤖</span>
                     <div className="flex-1">
-                      <div className="text-xs font-semibold text-purple-400 mb-1">AI Task Summary</div>
-                      <div className="text-sm text-gray-200">
+                      <div className="text-xs font-bold text-purple-300 mb-1 uppercase tracking-wide">Task Completed - AI Summary</div>
+                      <div className="text-sm text-white font-medium leading-relaxed">
                         {sanitizeText(event.ai_summary)}
                       </div>
+                      {event.summary && event.summary !== event.ai_summary && (
+                        <div className="text-xs text-gray-400 mt-2 italic">
+                          Original: {sanitizeText(event.summary)}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
-              )}
+              ) : event.summary ? (
+                <div className="text-sm text-claude-text mb-2">
+                  {sanitizeText(event.summary)}
+                </div>
+              ) : null}
               
               <div className="flex gap-2">
                 {event.payload && (
