@@ -10,6 +10,7 @@ Real-time observability and monitoring dashboard for Claude Code AI agents. Trac
 
 - **Real-Time Monitoring**: Live tracking of all Claude Code agent activities
 - **Multi-Agent Support**: Monitor 68+ specialized AI agents simultaneously
+- **AI Task Summaries**: Haiku 3.5 generates plain English summaries when tasks complete
 - **Event Streaming**: WebSocket-based real-time event updates
 - **Persistent Storage**: SQLite database for historical data
 - **One-Click Setup**: Simple NPX command for instant deployment
@@ -99,7 +100,28 @@ PORT=3001
 WS_PORT=8766
 JWT_SECRET=your-secret-key
 NODE_ENV=production
+
+# Optional: Enable AI Summaries with Haiku 3.5
+ANTHROPIC_API_KEY=your-anthropic-api-key-here
 ```
+
+### AI Task Summaries (Optional)
+
+Enable plain English summaries when tasks complete:
+
+```bash
+# Run the setup script
+./setup-haiku-api.sh
+
+# Or manually add to .env:
+ANTHROPIC_API_KEY=sk-ant-api03-YOUR-KEY-HERE
+```
+
+When configured, all users get:
+- Plain English summaries when agents complete tasks
+- Explanation of what was done, where, and how
+- Secure server-side API key (never exposed to clients)
+- Automatic fallback if API is unavailable
 
 ### Claude Code Hooks
 
