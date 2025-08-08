@@ -250,6 +250,16 @@ const ActivityPulse = ({ events }) => {
                 <p className="text-claude-text bg-claude-bg rounded p-3">{selectedEvent.summary}</p>
               </div>
               
+              {/* AI Summary for Stop events */}
+              {(selectedEvent.type === 'Stop' || selectedEvent.type === 'SubAgentStop') && selectedEvent.ai_summary && (
+                <div className="bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/30 rounded-lg p-4 mt-4">
+                  <h3 className="font-semibold text-purple-400 mb-2 flex items-center gap-2">
+                    <span>🤖</span> AI Task Summary (Haiku 3.5)
+                  </h3>
+                  <p className="text-gray-200">{selectedEvent.ai_summary}</p>
+                </div>
+              )}
+              
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <h4 className="font-semibold text-claude-text mb-1">Timestamp</h4>

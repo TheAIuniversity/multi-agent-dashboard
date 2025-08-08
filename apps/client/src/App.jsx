@@ -831,6 +831,21 @@ function App() {
                 </div>
               )}
               
+              {/* AI Summary for Stop events */}
+              {(event.event_type === 'Stop' || event.event_type === 'SubAgentStop') && event.ai_summary && (
+                <div className="bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/30 rounded-lg p-3 mb-2">
+                  <div className="flex items-start gap-2">
+                    <span className="text-purple-400">🤖</span>
+                    <div className="flex-1">
+                      <div className="text-xs font-semibold text-purple-400 mb-1">AI Task Summary</div>
+                      <div className="text-sm text-gray-200">
+                        {sanitizeText(event.ai_summary)}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+              
               <div className="flex gap-2">
                 {event.payload && (
                   <details className="mt-2 flex-1">
